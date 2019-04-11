@@ -399,6 +399,13 @@ if test x$cryptolib = xnss; then
     AM_CHECK_NSS
 fi
 
+dnl RHEL-specific: We always check for libcrypto because the obfuscation
+dnl feature is only implemented with OpenSSL as the NSS version doesn't
+dnl run in FIPS mode
+AM_CHECK_LIBCRYPTO
+AM_CONDITIONAL([OBF_WITH_LIBCRYPTO], [test x == x])
+AC_DEFINE_UNQUOTED(OBF_WITH_LIBCRYPTO, 1, [Build the obfuscation feature with libcrypt crypto back end])
+
 if test x$cryptolib = xlibcrypto; then
     AM_CHECK_LIBCRYPTO
     m4_include([src/external/p11-kit.m4])

@@ -31,6 +31,9 @@
  */
 
 #include "config.h"
+
+#ifndef OBF_WITH_LIBCRYPTO
+
 #include <prerror.h>
 #include <pk11func.h>
 
@@ -326,3 +329,5 @@ done:
     talloc_free(tmp_ctx);
     return ret;
 }
+
+#endif /* OBF_WITH_LIBCRYPTO */

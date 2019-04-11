@@ -964,6 +964,12 @@ else
         $(NULL)
 endif
 
+if OBF_WITH_LIBCRYPTO
+SSS_CRYPT_SOURCES += src/util/crypto/libcrypto/crypto_obfuscate.c
+SSS_CRYPT_CFLAGS += $(CRYPTO_CFLAGS)
+SSS_CRYPT_LIBS += $(CRYPTO_LIBS)
+endif
+
 libsss_crypt_la_SOURCES = \
     $(SSS_CRYPT_SOURCES)
 libsss_crypt_la_CFLAGS = \
