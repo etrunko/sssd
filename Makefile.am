@@ -4193,7 +4193,9 @@ libsss_ipa_la_SOURCES = \
     src/providers/ad/ad_pac.c \
     src/providers/ad/ad_pac_common.c \
     src/providers/ad/ad_srv.c \
-    src/providers/ad/ad_domain_info.c
+    src/providers/ad/ad_domain_info.c \
+    src/providers/ad/ad_cldap_ping.c \
+    $(NULL)
 libsss_ipa_la_CFLAGS = \
     $(AM_CFLAGS) \
     $(OPENLDAP_CFLAGS) \
@@ -4260,6 +4262,7 @@ libsss_ad_la_SOURCES = \
     src/providers/ad/ad_subdomains.c \
     src/providers/ad/ad_domain_info.c \
     src/providers/ad/ad_refresh.c \
+    src/providers/ad/ad_cldap_ping.c \
     $(NULL)
 
 
